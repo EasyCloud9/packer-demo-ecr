@@ -47,10 +47,11 @@ jobs:
 
     - name: Tag Docker Image for ECR
       run: |
-        docker tag rushiks3cloudhub/my-docker-image:latest 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
-        docker tag rushiks3cloudhub/my-docker-image:v1.0.0 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
+        docker tag rushiks3cloudhub/my-docker-image:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
+        docker tag rushiks3cloudhub/my-docker-image:v1.0.0 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
+
 
     - name: Push Docker Image to AWS ECR
       run: |
-        docker push 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
-        docker push 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
+        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
+        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
