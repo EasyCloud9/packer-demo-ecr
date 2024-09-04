@@ -36,18 +36,18 @@ jobs:
 
     - name: Log in to Amazon ECR
       env:
-        AWS_REGION: ${{ secrets.us-east-1 }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AKIAZQ3DNW2CD4SUYAEA }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.k9k/GnMD9ooEfJEbfCMphODrYwTrV98DrNAhSX8y}}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.$AWS_REGION.amazonaws.com
 
     - name: Tag Docker Image for ECR
       run: |
-        docker tag rushiks3cloudhub/my-docker-image:latest <aws_account_id>.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
-        docker tag rushiks3cloudhub/my-docker-image:v1.0.0 <aws_account_id>.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
+        docker tag rushiks3cloudhub/my-docker-image:latest 546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
+        docker tag rushiks3cloudhub/my-docker-image:v1.0.0 546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
 
     - name: Push Docker Image to AWS ECR
       run: |
-        docker push <6546-5415-8468>.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
-        docker push <6546-5415-8468>.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
+        docker push 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
+        docker push 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
