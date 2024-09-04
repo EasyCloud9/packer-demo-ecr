@@ -32,7 +32,7 @@ jobs:
 
     - name: Build Docker Image with Packer
       run: |
-        packer build packer_template.json
+        packer build packer.pkr.hcl
 
     - name: Log in to Amazon ECR
       env:
@@ -44,8 +44,8 @@ jobs:
 
     - name: Tag Docker Image for ECR
       run: |
-        docker tag rushiks3cloudhub/my-docker-image:latest 546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
-        docker tag rushiks3cloudhub/my-docker-image:v1.0.0 546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
+        docker tag rushiks3cloudhub/my-docker-image:latest 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:latest
+        docker tag rushiks3cloudhub/my-docker-image:v1.0.0 6546-5415-8468.dkr.ecr.$AWS_REGION.amazonaws.com/rushiks3cloudhub/my-docker-image:v1.0.0
 
     - name: Push Docker Image to AWS ECR
       run: |
