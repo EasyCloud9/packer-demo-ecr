@@ -28,7 +28,7 @@ jobs:
 
     - name: Validate Packer Template
       run: |
-        packer validate packer_template.json
+        packer validate packer.pkr.hcl
 
     - name: Build Docker Image with Packer
       run: |
