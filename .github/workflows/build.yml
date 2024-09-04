@@ -26,6 +26,9 @@ jobs:
         sudo apt-get update -y
         sudo apt-get install -y awscli
 
+    - name: Initialize Packer
+      run: packer init .
+
     - name: Validate Packer Template
       run: |
         packer validate packer.pkr.hcl
